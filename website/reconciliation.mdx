@@ -24,17 +24,17 @@ This is very similar to what happens in the frameworks mentioned above.
 
 The web pages rendered on the browsers are represented using a hierarchal tree structure called **Document Object Model** (DOM). The DOM represents HTML/XML documents as nodes and objects so that, they can be accessed by any programming or scripting language(e.g. Javascript, Python) and necessary changes in the style, content and structure can be made easily.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1687852613604/0934fb32-cb54-4401-b0ea-33f78ce89477.png align="center")
+<CustomImage src="https://cdn.hashnode.com/res/hashnode/image/upload/v1687852613604/0934fb32-cb54-4401-b0ea-33f78ce89477.png" alt="Document Object Model" />
 
 Whenever we make some changes in the structure, style or content of the existing DOM, the DOM tree gets updated. To display this updated DOM in the browser, all the components are re-rendered, even the ones where there was no change. This updation process is very costly as even for a small change made in the span component in the above image, the entire DOM will re-render.
 
 To tackle this issue, virtual DOMs were introduced. **Virtual DOM** is an exact copy of the real DOM but it cannot make any changes on the browser directly.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1687855228589/f6c19b08-4756-4cdf-8915-e76d08efe978.png align="center")
+<CustomImage src="https://cdn.hashnode.com/res/hashnode/image/upload/v1687855228589/f6c19b08-4756-4cdf-8915-e76d08efe978.png" alt="Virtual & Real DOM" />
 
 Now, if any changes are made, a snapshot of the virtual DOM is taken and a new virtual DOM with changes is created. Then, a comparison is made between the elements of the new virtual DOM and the snapshot all the while keeping track of the differences between the two. This comparison is done using diffing algorithm and the process is called **diffing**. Once it is determined, which part exactly has changed, only those objects are updated in the real DOM.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1687861597207/4c6d5ea0-fd19-43a8-9d4f-314ed3fabe96.png align="center")
+<CustomImage src="https://cdn.hashnode.com/res/hashnode/image/upload/v1687861597207/4c6d5ea0-fd19-43a8-9d4f-314ed3fabe96.png" alt="Reconciliation process" />
 
 <div data-node-type="callout">
 <div data-node-type="callout-emoji">💡</div>
@@ -253,11 +253,11 @@ h2 {
 
 This app is deployed [here](https://reconciler.netlify.app/withoutreconciliation) and if you reproduce it on your system it should look like this:
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1687880471157/9d96feee-2cba-4de7-9b7f-c863bd93d7ad.png align="center")
+<CustomImage src="https://cdn.hashnode.com/res/hashnode/image/upload/v1687880471157/9d96feee-2cba-4de7-9b7f-c863bd93d7ad.png" alt="app without reconciliation" />
 
 But how can you be sure that if you are adding a new block, all the blocks are re-rendering? There is something called `Paint Flashing` in Chrome dev tools which marks an area with green colour if it is re-rendered. To switch it on, open dev tools -&gt; options -&gt; More tools -&gt; Rendering -&gt; Check Paint Flashing option.
 
-![](https://cdn.hashnode.com/res/hashnode/image/upload/v1687881032435/d7ded0cb-d746-4e7a-9609-c5cda1e3ba09.png align="center")
+<CustomImage src="https://cdn.hashnode.com/res/hashnode/image/upload/v1687881032435/d7ded0cb-d746-4e7a-9609-c5cda1e3ba09.png" alt="paint flashing settings" />
 
 Now if you make any changes, you can notice the part which is re-rendering. And in the case of the app made above all the blocks re-render when any change is made because `render` function clears the `appElement` by setting its `innerHTML` to an empty string and then rebuilds the UI by iterating over the `blocks` array and creating `div` elements for each block.
 
