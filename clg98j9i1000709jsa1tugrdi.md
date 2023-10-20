@@ -78,7 +78,7 @@ So, 0.1 + 0.2 = 0.3000000000000000444089209850062616169452667236328125. Let's ca
 > 0.010011001100110011001100110011001100110011001100110011
 > ```
 > 
-> which, in decimal number system, is:
+> which, in the decimal number system, is:
 > 
 > ```plaintext
 > 0.299999999999999988897769753748434595763683319091796875
@@ -90,9 +90,9 @@ Since, A !== B, 0.1+0.2 !== 0.3 returns true. Also, if you do 0.1 + 0.2, you wil
 
 ### Conclusion
 
-It is the because of binary64 format, which is used by JavaScript internally, just like many other programming languages, that we get to see this behaviour working with numbers.
+It is because of binary64 format, which is used by JavaScript internally, just like many other programming languages, that we get to see this behaviour working with numbers.
 
-We should be careful when our program has complex calculations involving very large or very small, or combination of both numbers. The program should take into account of rounding off, truncation and precision of calculations required.
+We should be careful when our program has complex calculations involving very large or very small, or a combination of both numbers. The program should take into account rounding off, truncation and precision of calculations required.
 
 ### References
 
